@@ -4,7 +4,7 @@
 
 class BaseWindows
 {
-private:
+public:
 	HWND hwnd;
 public:
 	bool Register(HINSTANCE hInstance);

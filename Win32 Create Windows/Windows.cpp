@@ -12,9 +12,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR, int nCmdShow) {
 	if (!Win.Register(hInstance))
 		MessageBox(0, L"Error Register Window", L"Register", 0);
 
-	HWND hwnd = Win.Create((wchar_t*)L"Window", WS_OVERLAPPEDWINDOW, 1024, 768);
+	if (!Win.Create((wchar_t*)L"Window", WS_OVERLAPPEDWINDOW, 1024, 768))
+		MessageBox(0, L"Error Create Window", L"CreateWindow", 0);
 
-	ShowWindow(hwnd, nCmdShow);
+	ShowWindow(Win.hwnd, nCmdShow);
 	MSG msg = { 0 };
 	while (GetMessage(&msg, 0, 0, 0)) {
 		TranslateMessage(&msg);
